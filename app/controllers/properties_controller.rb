@@ -5,7 +5,8 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
-    2.times {@property.stations.build}
+    @property.stations.new
+    # 2.times {@property.stations.build}
   end
 
   def create
@@ -19,6 +20,7 @@ class PropertiesController < ApplicationController
 
   def edit
     @property = Property.find(params[:id])
+    @property.stations.new
   end
 
   def update
