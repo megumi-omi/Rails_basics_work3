@@ -5,6 +5,7 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
+    2.times {@property.stations.build}
   end
 
   def create
@@ -38,6 +39,6 @@ class PropertiesController < ApplicationController
   private
 
   def property_params
-    params.require(:property).permit(:name, :rent, :address, :age, :note)
+    params.require(:property).permit(:name, :rent, :address, :age, :note, stations_attributes:[:id, :route_name, :station_name, :time, :property_id])
   end
 end

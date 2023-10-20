@@ -4,5 +4,11 @@
 <p>築年数:<%= @property.age %>年</p>
 <p>備考:<%= @property.note %></p>
 
+<% @property.stations.each do |station| %>
+  <p>路線名 <%= station.route_name %></p>
+  <p>駅名 <%= station.station_name %></p>
+  <p>徒歩分数 <%= station.time %></p>
+ <% end %>
+
 <%= link_to '編集', edit_property_path(@property) %>
 <%= link_to "戻る", properties_path %>
