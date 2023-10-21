@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_19_104603) do
+ActiveRecord::Schema.define(version: 2023_10_21_082928) do
 
   create_table "properties", force: :cascade do |t|
     t.string "name"
-    t.integer "rent"
+    t.string "rent"
     t.text "address"
     t.integer "age"
     t.text "note"
