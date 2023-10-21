@@ -31,7 +31,7 @@
   </div>
 
   <%= form.fields_for :stations do | statdion | %>
-    <p class=stations>最寄り駅1</p>
+    <a class=stations>最寄り駅1</a>
     <div class="station_route_name">
       <%= statdion.label :route_name, "路線名" %>
       <br>
@@ -47,7 +47,10 @@
       <br>
       <%= statdion.text_field :time %><span>分</span>
     </div>
-    <p class=stations>最寄り駅2</p>
+    <% end %>
+
+    <%= form.fields_for :stations do | statdion | %>
+    <a class=stations>最寄り駅2</a>
     <div class="station_route_name">
       <%= statdion.label :route_name, "路線名" %>
       <br>
