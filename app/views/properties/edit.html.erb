@@ -27,29 +27,30 @@
     <%= form.text_area :note %>
   </div>
 
-
-<%= form_with(model: @property, local: true) do |form| %>
-  <%= form.fields_for :stations do | station | %>
-    <div class="station_route_name">
-      <%= station.label :route_name, "路線名" %>
-      <br>
-      <%= station.text_field :route_name %>
-    </div>
-    <div class="station_station_name">
-      <%= station.label :station_name, "駅名" %>
-      <br>
-      <%= station.text_field :station_name %>
-    </div>
-    <div class="station_time">
-      <%= station.label :time, "徒歩分数" %>
-      <br>
-      <%= station.text_field :time %><span>分</span>
-    </div>
+  <% @property.stations.each_with_index do |station, i| %>
+    <%= form.fields_for :stations, station do | station | %>
+      <div class="stations">
+        <%= "最寄り駅 #{i+= 1}" %>
+      </div>
+      <div class="station_route_name">
+        <%= station.label :route_name, "路線名" %>
+        <br>
+        <%= station.text_field :route_name %>
+      </div>
+      <div class="station_station_name">
+        <%= station.label :station_name, "駅名" %>
+        <br>
+        <%= station.text_field :station_name %>
+      </div>
+      <div class="station_time">
+        <%= station.label :time, "徒歩分数" %>
+        <br>
+        <%= station.text_field :time %><span>分</span>
+      </div>
+    <% end %>
   <% end %>
 
-<% end %>
-
-<%= form.submit :"登録する" %>
+<%= form.submit :"更新する" %>
 <br>
 <% end %>
 
